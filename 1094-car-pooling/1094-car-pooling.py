@@ -1,11 +1,12 @@
 class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
-        holder = [0 for i in range(1000)]
+        holder = [0] * 1001
         for trip in trips:
-            if trip[0]>capacity: return False
-            for j in range(trip[1], trip[2]):
-                if holder[j] + trip[0] > capacity:
-                    return False
-                else:
-                    holder[j] += trip[0]
+            holder[trip[1]] += trip[0]
+            holder[trip[2]] -= trip[0]
+        prefix = 0
+        for i in holder:
+            prefix += i
+            if prefix > capacity:
+                return False
         return True
