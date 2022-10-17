@@ -7,8 +7,7 @@ class Solution:
                 stack.append(i)
         nee_len = len(needle)
         for i in stack:
-            count = 0
-            left = 0
+            count = left = 0
             while i < hay_len:
                 if haystack[i] == needle[left]:
                     left += 1
