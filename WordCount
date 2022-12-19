@@ -1,0 +1,22 @@
+length = int(input())
+count = 0
+arr = []
+while count < length:
+    arr.append(input())
+    count += 1
+dic = {}
+for word in arr:
+    if word in dic:
+        dic[word] += 1
+    else:
+        dic[word] = 1
+
+
+words = []
+for i in dic:
+    words.append(i)
+result = []
+for i in words:
+    result.append(str(dic[i]))
+print(len(dic))
+print(" ".join(result))
