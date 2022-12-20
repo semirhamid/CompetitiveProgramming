@@ -1,0 +1,25 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+test_cases = int(input())
+count = 0
+
+while count < test_cases:
+    number_of_cubes = int(input())
+    cubes = input().split(" ")
+    left = 0
+    right = len(cubes) - 1
+    cubes = [int(i) for i in cubes]
+    stack = [2147483649]
+    while left < right:
+        if cubes[left] >= cubes[right] and stack[-1] >= cubes[left]:
+            stack.append(cubes[left])
+            left += 1
+        elif cubes[right] >= cubes[left] and stack[-1] >= cubes[right]:
+            stack.append(cubes[right])
+            right -= 1
+        else:
+            print("No")
+            break
+    else:
+        print("Yes")
+    count += 1
