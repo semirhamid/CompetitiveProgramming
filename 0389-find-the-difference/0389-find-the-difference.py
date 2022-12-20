@@ -1,6 +1,13 @@
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        c = 0
-        for cs in s: c ^= ord(cs)
-        for ct in t: c ^= ord(ct)
-        return chr(c)
+        dic = {}
+        for i in s:
+            dic[i] = dic.get(i,0) + 1
+        for i in t:
+            if i in dic:
+                if dic[i] == 0:
+                    return i
+                else:
+                    dic[i] -= 1
+            else:
+                return i
