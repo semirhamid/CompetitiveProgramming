@@ -1,4 +1,7 @@
 if __name__ == '__main__':
     n = int(input())
-    integer_list = map(int, input().split())
-    print(hash(tuple(integer_list)))
+    arr = []
+    x = input().split()
+    for i in x:
+        arr.append(int(i))
+    print(hash(tuple(arr)))
