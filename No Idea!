@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+mn = input().split(' ')
+n = mn[0]
+m = mn[1]
+result = 0
+happiness = input().split(' ')
+a = set(input().split(' '))
+b = set(input().split(' '))
+for i in happiness:
+    if i in a:
+        result +=  1
+    elif i in b:
+        result -= 1
+print(result)

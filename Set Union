@@ -1,0 +1,9 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+english_students = int(input())
+english_learners = set(input().split())
+french_students = int(input())
+french_learners = set(input().split())
+
+
+print(len(english_learners.union(french_learners)))

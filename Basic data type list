@@ -1,0 +1,22 @@
+if __name__ == '__main__':
+    N = int(input())
+    count = 0
+    array = []
+    while count < N:
+        current_input = input().split(" ")
+        if current_input[0] == "insert":
+            array.insert(int(current_input[1]),int(current_input[2]))
+        elif current_input[0] == "print":
+            print(array)
+        elif current_input[0] == "remove":
+            array.remove(int(current_input[1]))
+        elif current_input[0] == "append":
+            array.append(int(current_input[1]))
+        elif current_input[0] == "sort":
+            array.sort()
+        elif current_input[0] == "pop":
+            array.pop()
+        elif current_input[0] == "reverse":
+            array = array[::-1]
+        count += 1
+        

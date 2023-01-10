@@ -1,0 +1,16 @@
+test_cases = int(input())
+for test in range(test_cases):
+    length =  int(input())
+    num_arr = input().split()
+    num_str = input()
+    pairs = {}
+    for i in range(length):
+        if num_arr[i] in pairs:
+            if num_str[i] != pairs[num_arr[i]]:
+                print("NO")
+                break
+        else:
+            pairs[num_arr[i]] = num_str[i]
+
+    else:
+        print("YES")
