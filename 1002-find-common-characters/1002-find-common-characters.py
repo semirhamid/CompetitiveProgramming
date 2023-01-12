@@ -4,22 +4,16 @@ class Solution:
         container = []
         for current_word in words:
             letter_count = [0 for i in range(26)]
-            offset = ord('a')
             for char in current_word:
-                letter_count[ord(char) - offset] += 1
-            
+                letter_count[ord(char) - 97] += 1
             container.append(letter_count)
+            
         result = []
-        current = container[0]
         for i in range(26):
-            flag = True
             mn =  container[0][i]
             for wor in container:
-                if  wor[i] == 0:
-                    flag = False
                 mn = min(mn, wor[i])
-            if flag:
-                for j in range(mn):
-                    result.append(chr(ord('a') + i))
+            for j in range(mn):
+                    result.append(chr(97 + i))
                          
         return result
