@@ -1,8 +1,12 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-        for j in range(len(names)):
-            for i in range(1, len(names)):
-                if heights[i - 1] < heights[i ]:
-                    heights[i - 1], heights[i] = heights[i ] , heights[i - 1]
-                    names[i - 1], names[i] = names[i ] , names[i - 1]
+        for i in range(len(names)):
+            mn = i
+            for j in range(i , len(names)):
+                if heights[j] > heights[mn]:
+                    mn = j
+            names[i] , names[mn] = names[mn] , names[i]
+            heights[i] , heights[mn] = heights[mn] , heights[i]
         return names
+                
+                
