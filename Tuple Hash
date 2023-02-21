@@ -1,0 +1,7 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = []
+    x = input().split()
+    for i in x:
+        arr.append(int(i))
+    print(hash(tuple(arr)))

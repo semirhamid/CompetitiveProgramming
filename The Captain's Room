@@ -1,0 +1,14 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+x = int(input())
+y = input()
+lt = y.split(' ')
+dic = {}
+for i in lt:
+    if i in dic:
+        dic[i] += 1
+    else:
+        dic[i] = 1
+for i in dic:
+    if dic[i] != x:
+        print(i)
+        break

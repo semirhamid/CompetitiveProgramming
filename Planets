@@ -1,0 +1,17 @@
+from collections import Counter
+
+test_cases = int(input())
+
+for test in range(test_cases):
+    t_shirts = input().split()
+    planets_number = int(t_shirts[0])
+    cost = int(t_shirts[1])
+    pair = Counter(input().split())
+    sm = 0
+    for i in pair:
+        current_count = pair[i]
+        if current_count > cost:
+            sm += cost
+        else:
+            sm += current_count
+    print(sm)

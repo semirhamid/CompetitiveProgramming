@@ -1,0 +1,22 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+nm = input().split()
+n = int(nm[0])
+m = int(nm[1])
+n_list = []
+m_list = []
+for i in range(n):
+    n_list.append(input())
+
+for i in range(m):
+    m_list.append(input())
+
+for i in range(m):
+    temp = []
+    for j in range(n):
+        if m_list[i] == n_list[j]:
+            temp.append(str(j + 1))
+    if len(temp) == 0:
+            temp.append("-1")
+    print(" ".join(temp))
+    

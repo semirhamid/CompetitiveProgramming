@@ -1,0 +1,43 @@
+test_cases = int(input())
+sizes = {"M": 0, "L":1000, "S":-1000, "X": 1 ,"Y": -1}
+for test in range(test_cases):
+    t_shirts = input().split()
+    first = t_shirts[0]
+    second = t_shirts[1]
+    first_sum = 0
+    second_sum = 0
+    if first.count("S") > 0:
+        new_first = ""
+        for i in first:
+            if i != "S":
+                new_first += "Y"
+            else:
+                new_first += "S"
+        first = new_first
+    if second.count("S") > 0:
+        new_second = ""
+        for i in second:
+            if i != "S":
+                new_second += "Y"
+            else:
+                new_second += "S"
+        second = new_second
+                
+
+    for i in first:
+        first_sum += sizes[i]
+    for i in second:
+        second_sum += sizes[i]
+
+
+
+    if first_sum > second_sum:
+        print(">")
+    elif first_sum < second_sum:
+        print("<")
+    else:
+        print("=")
+
+
+
+# XXXS XS
