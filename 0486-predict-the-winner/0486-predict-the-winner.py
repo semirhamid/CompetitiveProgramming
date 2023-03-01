@@ -1,18 +1,19 @@
 class Solution:
-    def PredictTheWinner(self, nums: List[int]) -> bool:
+    def PredictTheWinner(self, nums):
+        dp = {}
         def getscore(left, right, turn):
             if left == right:
-                return nums[left] * turn
+                return nums[left]
+            if (left + 1, right) not in dp:
+                dp[(left + 1, right)] = getscore(left + 1, right , not turn)            
+            getLeft =  nums[left] + dp[(left + 1, right)]
+            if (left , right - 1) not in dp:
+                dp[(left , right - 1)] = getscore(left , right - 1 , not turn)
+            getRight =  nums[right] + dp[(left, right - 1)]
             
-            getleft = nums[left]*turn + getscore(left+1, right, -turn)
-            getright = nums[right]*turn + getscore(left, right-1, -turn)
-            
-            if turn == 1:
-                return max(getleft, getright)
-            elif turn == -1:
-                return min(getleft, getright)
-            
-        if getscore(0, len(nums)-1, 1) >= 0:
-            return True
-        else:
-            return False
+            if turn:
+                return max(getLeft, getRight)
+            else:
+                return min(getscore(left + 1, right , not turn), getscore(left, right - 1, not turn))
+        result = getscore(0, len(nums) - 1, nums)
+        return result >= sum(nums) - result
